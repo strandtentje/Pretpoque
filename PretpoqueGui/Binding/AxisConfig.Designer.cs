@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MouseXMult = new System.Windows.Forms.TrackBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -42,6 +43,7 @@
             this.HighTriggerOn = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.AxisPosition = new System.Windows.Forms.TrackBar();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MouseXMult)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -76,6 +78,7 @@
             this.MouseXMult.Size = new System.Drawing.Size(199, 56);
             this.MouseXMult.TabIndex = 4;
             this.MouseXMult.TickFrequency = 5;
+            this.toolTip1.SetToolTip(this.MouseXMult, "How much this axis influences the x position of the mouse. Press R to zero.");
             this.MouseXMult.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ResetTrackbar);
             // 
             // groupBox3
@@ -100,6 +103,7 @@
             this.MouseYMult.Size = new System.Drawing.Size(199, 56);
             this.MouseYMult.TabIndex = 6;
             this.MouseYMult.TickFrequency = 5;
+            this.toolTip1.SetToolTip(this.MouseYMult, "How much this axis influences the y position of the mouse. Press R to zero.");
             this.MouseYMult.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ResetTrackbar);
             // 
             // groupBox4
@@ -114,18 +118,20 @@
             this.groupBox4.Size = new System.Drawing.Size(205, 95);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Lower Trigger";
+            this.groupBox4.Text = "Trigger on Low, Down or Left";
             // 
             // LowTriggerLevel
             // 
             this.LowTriggerLevel.Dock = System.Windows.Forms.DockStyle.Top;
             this.LowTriggerLevel.Location = new System.Drawing.Point(3, 63);
-            this.LowTriggerLevel.Maximum = 100;
+            this.LowTriggerLevel.Maximum = -5;
             this.LowTriggerLevel.Minimum = -100;
             this.LowTriggerLevel.Name = "LowTriggerLevel";
             this.LowTriggerLevel.Size = new System.Drawing.Size(199, 56);
             this.LowTriggerLevel.TabIndex = 11;
             this.LowTriggerLevel.TickFrequency = 5;
+            this.toolTip1.SetToolTip(this.LowTriggerLevel, "Sensitivity of trigger. Drag left to descrease.");
+            this.LowTriggerLevel.Value = -5;
             this.LowTriggerLevel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ResetTrackbar);
             // 
             // LowTriggerKey
@@ -136,6 +142,7 @@
             this.LowTriggerKey.Name = "LowTriggerKey";
             this.LowTriggerKey.Size = new System.Drawing.Size(199, 24);
             this.LowTriggerKey.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.LowTriggerKey, "Key to hold on lower trigger");
             // 
             // LowTriggerOn
             // 
@@ -147,6 +154,7 @@
             this.LowTriggerOn.Size = new System.Drawing.Size(199, 21);
             this.LowTriggerOn.TabIndex = 13;
             this.LowTriggerOn.Text = "Active";
+            this.toolTip1.SetToolTip(this.LowTriggerOn, "Indicates the lower trigger has been reached");
             this.LowTriggerOn.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -161,18 +169,20 @@
             this.groupBox2.Size = new System.Drawing.Size(205, 94);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Upper Trigger";
+            this.groupBox2.Text = "Trigger on High, Up or Right";
             // 
             // HighTriggerLevel
             // 
             this.HighTriggerLevel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HighTriggerLevel.Location = new System.Drawing.Point(3, 63);
             this.HighTriggerLevel.Maximum = 100;
-            this.HighTriggerLevel.Minimum = -100;
+            this.HighTriggerLevel.Minimum = 5;
             this.HighTriggerLevel.Name = "HighTriggerLevel";
             this.HighTriggerLevel.Size = new System.Drawing.Size(199, 56);
             this.HighTriggerLevel.TabIndex = 12;
             this.HighTriggerLevel.TickFrequency = 5;
+            this.toolTip1.SetToolTip(this.HighTriggerLevel, "Sensitivity of Trigger. Drag right to decrease.");
+            this.HighTriggerLevel.Value = 5;
             this.HighTriggerLevel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ResetTrackbar);
             // 
             // HighTriggerKey
@@ -183,6 +193,7 @@
             this.HighTriggerKey.Name = "HighTriggerKey";
             this.HighTriggerKey.Size = new System.Drawing.Size(199, 24);
             this.HighTriggerKey.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.HighTriggerKey, "Key to hold on upper trigger");
             // 
             // HighTriggerOn
             // 
@@ -194,6 +205,7 @@
             this.HighTriggerOn.Size = new System.Drawing.Size(199, 21);
             this.HighTriggerOn.TabIndex = 14;
             this.HighTriggerOn.Text = "Active";
+            this.toolTip1.SetToolTip(this.HighTriggerOn, "Indicates the upper trigger has been reached");
             this.HighTriggerOn.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -219,6 +231,7 @@
             this.AxisPosition.Size = new System.Drawing.Size(199, 56);
             this.AxisPosition.TabIndex = 1;
             this.AxisPosition.TickFrequency = 5;
+            this.toolTip1.SetToolTip(this.AxisPosition, "Current position of axis");
             // 
             // AxisConfig
             // 
@@ -267,5 +280,6 @@
         private System.Windows.Forms.TrackBar AxisPosition;
         private System.Windows.Forms.CheckBox LowTriggerOn;
         private System.Windows.Forms.CheckBox HighTriggerOn;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
