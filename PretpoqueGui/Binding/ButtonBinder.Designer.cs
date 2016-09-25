@@ -74,7 +74,7 @@ namespace PretpoqueGui
             this.StartBindings.Name = "StartBindings";
             this.StartBindings.Size = new System.Drawing.Size(75, 23);
             this.StartBindings.TabIndex = 2;
-            this.StartBindings.Text = "Start";
+            this.StartBindings.Text = "Save";
             this.StartBindings.UseVisualStyleBackColor = true;
             this.StartBindings.Click += new System.EventHandler(this.StartBindings_Click);
             // 
@@ -135,7 +135,7 @@ namespace PretpoqueGui
             this.HatGroup.Size = new System.Drawing.Size(259, 512);
             this.HatGroup.TabIndex = 1;
             // 
-            // ControllerBinder
+            // ButtonBinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,8 +145,9 @@ namespace PretpoqueGui
             this.Controls.Add(this.ExitConfig);
             this.Controls.Add(this.StartBindings);
             this.Controls.Add(this.BellWhistleGroup);
-            this.Name = "ControllerBinder";
+            this.Name = "ButtonBinder";
             this.Text = "ButtonBinder";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ButtonBinder_FormClosing);
             this.Load += new System.EventHandler(this.ControllerBinder_Load);
             this.Shown += new System.EventHandler(this.BinderVisible);
             this.BellWhistleGroup.ResumeLayout(false);

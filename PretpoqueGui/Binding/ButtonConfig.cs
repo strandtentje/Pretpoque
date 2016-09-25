@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using OpenTK.Input;
 using BorrehSoft.Utensils.Collections.Settings;
 using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
+using PretpoqueCommon;
 
 namespace PretpoqueGui
 {
@@ -35,15 +36,15 @@ namespace PretpoqueGui
             {
                 Settings settings = new Settings();
                 
-                settings["buttonkey"] = this.KeybindSelector.Text;
+                settings[SettingsKeys.ButtonKey] = this.KeybindSelector.Text;
 
                 return settings;
             }
             set
             {
-                if (value.Has("buttonkey"))
+                if (value.Has(SettingsKeys.ButtonKey))
                 {
-                    this.KeybindSelector.SelectedText = value.GetString("buttonkey");
+                    this.KeybindSelector.SelectedText = value.GetString(SettingsKeys.ButtonKey);
                 }
             }
         }

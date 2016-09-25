@@ -1,4 +1,5 @@
 ﻿using BorrehSoft.Utensils.Log;
+using PretpoqueCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace PretpoqueGui
                 Application.Run(new ButtonBinder(picker.SelectedControllerIndex));
             }
 
-            
+            Environment.Exit(0);            
         }
     }
 }

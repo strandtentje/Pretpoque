@@ -70,8 +70,8 @@
             // 
             this.MouseXMult.Dock = System.Windows.Forms.DockStyle.Top;
             this.MouseXMult.Location = new System.Drawing.Point(3, 18);
-            this.MouseXMult.Maximum = 100;
-            this.MouseXMult.Minimum = -100;
+            this.MouseXMult.Maximum = 200;
+            this.MouseXMult.Minimum = -200;
             this.MouseXMult.Name = "MouseXMult";
             this.MouseXMult.Size = new System.Drawing.Size(199, 56);
             this.MouseXMult.TabIndex = 4;
@@ -94,8 +94,8 @@
             // 
             this.MouseYMult.Dock = System.Windows.Forms.DockStyle.Top;
             this.MouseYMult.Location = new System.Drawing.Point(3, 18);
-            this.MouseYMult.Maximum = 100;
-            this.MouseYMult.Minimum = -100;
+            this.MouseYMult.Maximum = 200;
+            this.MouseYMult.Minimum = -200;
             this.MouseYMult.Name = "MouseYMult";
             this.MouseYMult.Size = new System.Drawing.Size(199, 56);
             this.MouseYMult.TabIndex = 6;

@@ -73,9 +73,7 @@ namespace PretpoqueGui
 
             composer.SettingsToFile(allSettings, "default.conf");
 
-            this.ControllerPoller.Enabled = false;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            MessageBox.Show("Settings saved to default.conf", "Saved", MessageBoxButtons.OK);
         }
 
         private void ControllerPoller_Tick(object sender, EventArgs e)
@@ -109,6 +107,17 @@ namespace PretpoqueGui
         private void ControllerBinder_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonBinder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show(
+                "Are you sure you want to close the configurator? " +
+                "Unsaved changes will be lost.", 
+                "Closing", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

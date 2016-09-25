@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
+using WindowsInput.Native;
+using NamedKey = System.Collections.Generic.KeyValuePair<string, WindowsInput.Native.VirtualKeyCode>;
 
 namespace PretpoqueGui
 {
@@ -18,10 +19,10 @@ namespace PretpoqueGui
             {
                 keys = new List<NamedKey>();
 
-                foreach (Keys item in Enum.GetValues(typeof(Keys)))
+                foreach (VirtualKeyCode item in Enum.GetValues(typeof(VirtualKeyCode)))
                 {
                     keys.Add(new NamedKey(
-                        Enum.GetName(typeof(Keys), item),
+                        Enum.GetName(typeof(VirtualKeyCode), item),
                         item
                     ));
                 }

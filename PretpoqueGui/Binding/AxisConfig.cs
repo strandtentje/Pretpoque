@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using OpenTK.Input;
 using BorrehSoft.Utensils.Collections.Settings;
 using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
+using PretpoqueCommon;
 
 namespace PretpoqueGui
 {
@@ -37,8 +38,8 @@ namespace PretpoqueGui
             Win32Interop.Structs.POINT currentPos;
             Win32Interop.Methods.User32.GetCursorPos(out currentPos);
             Win32Interop.Methods.User32.SetCursorPos(
-                currentPos.x + (int)(rawValue * (float)this.MouseXMult.Value * 1.5f),
-                currentPos.y + (int)(rawValue * (float)this.MouseYMult.Value * 1.5f)
+                currentPos.x + (int)(rawValue * (float)this.MouseXMult.Value),
+                currentPos.y + (int)(rawValue * (float)this.MouseYMult.Value)
             );
         }
 
@@ -49,47 +50,37 @@ namespace PretpoqueGui
                 ((TrackBar)sender).Value = 0;
             }
         }
-
-        static class SettingsKey
-        {
-            public const string MouseXSensitivity = "mousexsensitivity";
-            public const string MouseYSensitivity = "mouseysensitivity";
-            public const string LowTriggerLevel = "lowtriggerlevel";
-            public const string HighTriggerLevel = "hightriggerlevel";
-            public const string LowTriggerKey = "lowtriggerkey";
-            public const string HighTriggerKey = "hightriggerkey";
-        }
-
+        
         public Settings Settings {
             get
             {
                 Settings settings = new Settings();
 
-                settings[SettingsKey.MouseXSensitivity] = this.MouseXMult.Value;
-                settings[SettingsKey.MouseYSensitivity] = this.MouseYMult.Value;
-                settings[SettingsKey.LowTriggerLevel] = this.LowTriggerLevel.Value;
-                settings[SettingsKey.HighTriggerLevel] = this.HighTriggerLevel.Value;
+                settings[SettingsKeys.MouseXSensitivity] = this.MouseXMult.Value;
+                settings[SettingsKeys.MouseYSensitivity] = this.MouseYMult.Value;
+                settings[SettingsKeys.LowTriggerLevel] = this.LowTriggerLevel.Value;
+                settings[SettingsKeys.HighTriggerLevel] = this.HighTriggerLevel.Value;
 
-                settings[SettingsKey.LowTriggerKey] = this.LowTriggerKey.Text;
-                settings[SettingsKey.HighTriggerKey] = this.HighTriggerKey.Text;
+                settings[SettingsKeys.LowTriggerKey] = this.LowTriggerKey.Text;
+                settings[SettingsKeys.HighTriggerKey] = this.HighTriggerKey.Text;
                 
                 return settings;
             }
             set
             {
-                this.MouseXMult.Value = value.GetInt(SettingsKey.MouseXSensitivity, 0);
-                this.MouseYMult.Value = value.GetInt(SettingsKey.MouseYSensitivity, 0);
-                this.LowTriggerLevel.Value = value.GetInt(SettingsKey.LowTriggerLevel, -10);
-                this.HighTriggerLevel.Value = value.GetInt(SettingsKey.HighTriggerLevel, 10);
+                this.MouseXMult.Value = value.GetInt(SettingsKeys.MouseXSensitivity, 0);
+                this.MouseYMult.Value = value.GetInt(SettingsKeys.MouseYSensitivity, 0);
+                this.LowTriggerLevel.Value = value.GetInt(SettingsKeys.LowTriggerLevel, -10);
+                this.HighTriggerLevel.Value = value.GetInt(SettingsKeys.HighTriggerLevel, 10);
 
-                if (value.Has(SettingsKey.LowTriggerKey))
+                if (value.Has(SettingsKeys.LowTriggerKey))
                 {
-                    this.LowTriggerKey.SelectedText = value.GetString(SettingsKey.LowTriggerKey);
+                    this.LowTriggerKey.SelectedText = value.GetString(SettingsKeys.LowTriggerKey);
                 }
 
-                if (value.Has(SettingsKey.HighTriggerKey))
+                if (value.Has(SettingsKeys.HighTriggerKey))
                 {
-                    this.HighTriggerKey.SelectedText = value.GetString(SettingsKey.HighTriggerKey);
+                    this.HighTriggerKey.SelectedText = value.GetString(SettingsKeys.HighTriggerKey);
                 }
             }
         }

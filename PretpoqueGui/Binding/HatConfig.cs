@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using OpenTK.Input;
 using BorrehSoft.Utensils.Collections.Settings;
 using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
+using PretpoqueCommon;
 
 namespace PretpoqueGui
 {
@@ -36,31 +37,23 @@ namespace PretpoqueGui
             HatLeftActive.Checked = hatState.IsLeft;
             HatRightActive.Checked = hatState.IsRight;
         }
-
-        public static class SettingKeys
-        {
-            public const string HatUpKey = "hatupkey";
-            public const string HatDownKey = "hatdownkey";
-            public const string HatLeftKey = "hatleftkey";
-            public const string HatRightKey = "hatrightkey";
-        }
-
+        
         public Settings Settings {
             get {
                 Settings settings = new Settings();
 
-                settings[SettingKeys.HatUpKey] = HatUpKey.Text;
-                settings[SettingKeys.HatDownKey] = HatDownKey.Text;
-                settings[SettingKeys.HatLeftKey] = HatLeftKey.Text;
-                settings[SettingKeys.HatRightKey] = HatRightKey.Text;
+                settings[SettingsKeys.HatUpKey] = HatUpKey.Text;
+                settings[SettingsKeys.HatDownKey] = HatDownKey.Text;
+                settings[SettingsKeys.HatLeftKey] = HatLeftKey.Text;
+                settings[SettingsKeys.HatRightKey] = HatRightKey.Text;
             
                 return settings;
             }
             set {
-                if (value.Has(SettingKeys.HatUpKey)) HatUpKey.SelectedText = value.GetString(SettingKeys.HatUpKey);
-                if (value.Has(SettingKeys.HatDownKey)) HatDownKey.SelectedText = value.GetString(SettingKeys.HatDownKey);
-                if (value.Has(SettingKeys.HatLeftKey)) HatLeftKey.SelectedText = value.GetString(SettingKeys.HatLeftKey);
-                if (value.Has(SettingKeys.HatRightKey)) HatRightKey.SelectedText = value.GetString(SettingKeys.HatRightKey);
+                if (value.Has(SettingsKeys.HatUpKey)) HatUpKey.SelectedText = value.GetString(SettingsKeys.HatUpKey);
+                if (value.Has(SettingsKeys.HatDownKey)) HatDownKey.SelectedText = value.GetString(SettingsKeys.HatDownKey);
+                if (value.Has(SettingsKeys.HatLeftKey)) HatLeftKey.SelectedText = value.GetString(SettingsKeys.HatLeftKey);
+                if (value.Has(SettingsKeys.HatRightKey)) HatRightKey.SelectedText = value.GetString(SettingsKeys.HatRightKey);
             }
         }
 

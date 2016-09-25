@@ -48,6 +48,9 @@
     <Reference Include="Win32Interop.User32">
       <HintPath>..\packages\Win32Interop.User32.1.0.1\lib\Win32Interop.User32.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsInput">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binding\AxisConfig.cs">
@@ -76,13 +79,6 @@
     </Compile>
     <Compile Include="Binding\IControllerComponentConfig.cs" />
     <Compile Include="Binding\KeyList.cs" />
-    <Compile Include="ControllerItem.cs" />
-    <Compile Include="GamepadPicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GamepadPicker.Designer.cs">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Binding\AxisConfig.resx">
@@ -96,9 +92,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Binding\HatConfig.resx">
       <DependentUpon>HatConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GamepadPicker.resx">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -140,6 +133,10 @@
     <ProjectReference Include="..\apollogeese-utilities\SettingsComposer\Composing.csproj">
       <Project>{c34c6e2e-d624-498c-9ddb-1c4297a03dff}</Project>
       <Name>Composing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PretpoqueCommon\PretpoqueCommon.csproj">
+      <Project>{c0817067-0bce-4dc9-8fa2-43a31bf6f810}</Project>
+      <Name>PretpoqueCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
