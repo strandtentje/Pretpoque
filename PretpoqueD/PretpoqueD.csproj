@@ -52,39 +52,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigGui\Binding\AxisConfig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\AxisConfig.Designer.cs">
-      <DependentUpon>AxisConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonBinder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonBinder.Designer.cs">
-      <DependentUpon>ButtonBinder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonConfig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonConfig.Designer.cs">
-      <DependentUpon>ButtonConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\ControllerItem.cs" />
-    <Compile Include="ConfigGui\GamepadPicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\GamepadPicker.Designer.cs">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\HatConfig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\HatConfig.Designer.cs">
-      <DependentUpon>HatConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\IControllerComponentConfig.cs" />
-    <Compile Include="ConfigGui\Binding\KeyList.cs" />
+    <Compile Include="AxisMapping.cs" />
+    <Compile Include="ButtonMapping.cs" />
+    <Compile Include="HatMapping.cs" />
+    <Compile Include="KeyPresser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,23 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ConfigGui\Binding\AxisConfig.resx">
-      <DependentUpon>AxisConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\ButtonBinder.resx">
-      <DependentUpon>ButtonBinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\ButtonConfig.resx">
-      <DependentUpon>ButtonConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\GamepadPicker.resx">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\HatConfig.resx">
-      <DependentUpon>HatConfig.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\apollogeese-utilities\Collections\Collections.csproj">
@@ -129,6 +83,10 @@
     <ProjectReference Include="..\apollogeese-utilities\SettingsComposer\Composing.csproj">
       <Project>{c34c6e2e-d624-498c-9ddb-1c4297a03dff}</Project>
       <Name>Composing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PretpoqueCommon\PretpoqueCommon.csproj">
+      <Project>{c0817067-0bce-4dc9-8fa2-43a31bf6f810}</Project>
+      <Name>PretpoqueCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

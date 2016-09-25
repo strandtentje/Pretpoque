@@ -1,27 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ThreadTimer = System.Threading.Timer;
-using System.Windows.Forms;
 using System.Diagnostics;
 using BorrehSoft.Utensils.Log;
 using WindowsInput;
+using OpenTK.Input;
+using PretpoqueCommon;
+using BorrehSoft.Utensils.Collections.Settings;
+using System.Timers;
+using Keys = System.Windows.Forms.Keys;
+using DialogResult = System.Windows.Forms.DialogResult;
 
 namespace PretpoqueD
 {
     class Bootstrapper
     {
-        static int[] mouseXAxisMultipliers;
-        static int[] mouseYAxisMultipliers;
-        static int[] lowerTriggers;
-        static int[] upperTriggers;
-        static Keys[] lowerTriggerKeys;
-        static Keys[] upperTriggerKeys;
-        static Keys[] buttonKeys;
-        static Keys[] hatLeftKeys;
-        static Keys[] hatRightKeys;
-        static Keys[] hatUpKeys;
-        static Keys[] hatDownKeys;
+        public class ControllerPollEventArgs
+        {
+            public JoystickState State;
+        }
+        delegate void ControllerPollEventHandler(object sender, ControllerPollEventArgs e);
+        static event ControllerPollEventHandler ControllerPoll;
+
+        static InputSimulator simulator;
+        static int selectedJoystick;
+        static AxisMapping[] axis;
+        static ButtonMapping[] buttons;
+        static HatMapping[] hats;
 
         static void Main(string[] args)
         {
@@ -29,21 +34,65 @@ namespace PretpoqueD
             Secretary logger = new Secretary(time + ".log");
             logger.globVerbosity = 10;
             logger.ReportHere(0, "Logfile Opened");
-            
+
             ControllerPicker picker = new ControllerPicker();
+            
+            if (picker.ShowDialog() == DialogResult.OK) {
+                selectedJoystick = picker.SelectedControllerIndex;
+                Settings settings = SettingsParser.FromFile("default.conf");                
+                JoystickCapabilities capabilities = Joystick.GetCapabilities(selectedJoystick);
 
-            if (picker.ShowDialog() != DialogResult.OK) return;
+                ConfigureAxis(settings, capabilities);
+                ConfigureButtons(settings, capabilities);
+                ConfigureHats(settings, capabilities);
 
-            ControllerBinder binder = new ControllerBinder(picker.SelectedControllerIndex);
-
-            if (binder.ShowDialog() != DialogResult.OK) return;
-
-            ThreadTimer pollThread = new ThreadTimer(poller, null, 0, 10);
+                Timer pollThread = new Timer(10) { AutoReset = true, };
+                pollThread.Elapsed += pollThread_Elapsed;
+                pollThread.Start();
+            }
         }
 
-        static void poller(object none)
+        private static void ConfigureButtons(Settings settings, JoystickCapabilities capabilities)
         {
+            buttons = new ButtonMapping[capabilities.ButtonCount];
 
+            for (int i = 0; i < capabilities.ButtonCount; i++)
+            {
+                buttons[i] = ButtonMapping.FromSettings(settings, i);
+                ControllerPoll += buttons[i].ControllerPolled;
+            }
+        }
+
+        private static void ConfigureAxis(Settings settings, JoystickCapabilities capabilities)
+        {
+            axis = new AxisMapping[capabilities.AxisCount];
+
+            for (int i = 0; i < capabilities.AxisCount; i++)
+            {
+                axis[i] = AxisMapping.FromSettings(settings, i);
+                ControllerPoll += axis[i].ControllerPolled;
+            }
+        }
+
+        private static void ConfigureHats(Settings settings, JoystickCapabilities capabilities)
+        {
+            hats = new HatMapping[capabilities.HatCount];
+
+            for (int i = 0; i < capabilities.HatCount; i++)
+            {
+                hats[i] = HatMapping.FromSettings(settings, i);
+                ControllerPoll += hats[i].ControllerPolled;
+            }
+        }
+
+        static void pollThread_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            JoystickState currentState = Joystick.GetState(selectedJoystick);
+
+            if (ControllerPoll != null)
+            {
+                ControllerPoll(null, new ControllerPollEventArgs() { State = currentState });
+            }
         }
     }
 }
