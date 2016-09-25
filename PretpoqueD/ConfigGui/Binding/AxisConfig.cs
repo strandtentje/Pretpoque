@@ -37,8 +37,8 @@ namespace PretpoqueD
             Win32Interop.Structs.POINT currentPos;
             Win32Interop.Methods.User32.GetCursorPos(out currentPos);
             Win32Interop.Methods.User32.SetCursorPos(
-                currentPos.x + (int)(rawValue * (float)this.MouseXMult.Value),
-                currentPos.y + (int)(rawValue * (float)this.MouseYMult.Value)
+                currentPos.x + (int)(rawValue * (float)this.MouseXMult.Value * 1.5f),
+                currentPos.y + (int)(rawValue * (float)this.MouseYMult.Value * 1.5f)
             );
         }
 
@@ -70,24 +70,17 @@ namespace PretpoqueD
                 settings[SettingsKey.LowTriggerLevel] = this.LowTriggerLevel.Value;
                 settings[SettingsKey.HighTriggerLevel] = this.HighTriggerLevel.Value;
 
-                if (this.LowTriggerKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingsKey.LowTriggerKey] = this.LowTriggerKey.SelectedText;
-                }
-
-                if (this.HighTriggerKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingsKey.HighTriggerKey] = this.HighTriggerKey.SelectedText;
-                }
-
+                settings[SettingsKey.LowTriggerKey] = this.LowTriggerKey.Text;
+                settings[SettingsKey.HighTriggerKey] = this.HighTriggerKey.Text;
+                
                 return settings;
             }
             set
             {
-                this.MouseXMult.Value = value.GetInt(SettingsKey.MouseXSensitivity);
-                this.MouseYMult.Value = value.GetInt(SettingsKey.MouseYSensitivity);
-                this.LowTriggerLevel.Value = value.GetInt(SettingsKey.LowTriggerLevel);
-                this.HighTriggerLevel.Value = value.GetInt(SettingsKey.HighTriggerLevel);
+                this.MouseXMult.Value = value.GetInt(SettingsKey.MouseXSensitivity, 0);
+                this.MouseYMult.Value = value.GetInt(SettingsKey.MouseYSensitivity, 0);
+                this.LowTriggerLevel.Value = value.GetInt(SettingsKey.LowTriggerLevel, -10);
+                this.HighTriggerLevel.Value = value.GetInt(SettingsKey.HighTriggerLevel, 10);
 
                 if (value.Has(SettingsKey.LowTriggerKey))
                 {
@@ -99,6 +92,11 @@ namespace PretpoqueD
                     this.HighTriggerKey.SelectedText = value.GetString(SettingsKey.HighTriggerKey);
                 }
             }
+        }
+
+        public string ConfigName
+        {
+            get { return "axis" + AxisIndex; }
         }
     }
 }

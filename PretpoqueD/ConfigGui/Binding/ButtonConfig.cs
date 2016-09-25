@@ -35,10 +35,7 @@ namespace PretpoqueD
             {
                 Settings settings = new Settings();
                 
-                if (this.KeybindSelector.SelectedItem is NamedKey)
-                {
-                    settings["buttonkey"] = this.KeybindSelector.SelectedText;
-                }
+                settings["buttonkey"] = this.KeybindSelector.Text;
 
                 return settings;
             }
@@ -49,6 +46,11 @@ namespace PretpoqueD
                     this.KeybindSelector.SelectedText = value.GetString("buttonkey");
                 }
             }
+        }
+
+        public string ConfigName
+        {
+            get { return "button" + this.buttonIndex; }
         }
     }
 }

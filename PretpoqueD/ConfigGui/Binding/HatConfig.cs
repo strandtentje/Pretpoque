@@ -49,26 +49,11 @@ namespace PretpoqueD
             get {
                 Settings settings = new Settings();
 
-                if (HatUpKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingKeys.HatUpKey] = HatUpKey.SelectedText;
-                }
-
-                if (HatDownKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingKeys.HatDownKey] = HatDownKey.SelectedText;
-                }
-
-                if (HatLeftKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingKeys.HatLeftKey] = HatLeftKey.SelectedText;
-                }
-
-                if (HatRightKey.SelectedItem is NamedKey)
-                {
-                    settings[SettingKeys.HatRightKey] = HatRightKey.SelectedText;
-                }
-
+                settings[SettingKeys.HatUpKey] = HatUpKey.Text;
+                settings[SettingKeys.HatDownKey] = HatDownKey.Text;
+                settings[SettingKeys.HatLeftKey] = HatLeftKey.Text;
+                settings[SettingKeys.HatRightKey] = HatRightKey.Text;
+            
                 return settings;
             }
             set {
@@ -77,6 +62,11 @@ namespace PretpoqueD
                 if (value.Has(SettingKeys.HatLeftKey)) HatLeftKey.SelectedText = value.GetString(SettingKeys.HatLeftKey);
                 if (value.Has(SettingKeys.HatRightKey)) HatRightKey.SelectedText = value.GetString(SettingKeys.HatRightKey);
             }
+        }
+
+        public string ConfigName
+        {
+            get { return "hat" + this.hatIndex; }
         }
     }
 }

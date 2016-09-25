@@ -10,6 +10,8 @@ namespace PretpoqueD
 {
     interface IControllerComponentConfig
     {
+        string ConfigName { get; }
+
         void UpdateState(JoystickState state);
 
         Settings Settings { get; set; }

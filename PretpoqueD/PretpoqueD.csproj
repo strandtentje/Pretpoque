@@ -49,39 +49,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AxisConfig.cs">
+    <Compile Include="ConfigGui\Binding\AxisConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AxisConfig.Designer.cs">
+    <Compile Include="ConfigGui\Binding\AxisConfig.Designer.cs">
       <DependentUpon>AxisConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonBinder.cs">
+    <Compile Include="ConfigGui\Binding\ButtonBinder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ButtonBinder.Designer.cs">
+    <Compile Include="ConfigGui\Binding\ButtonBinder.Designer.cs">
       <DependentUpon>ButtonBinder.cs</DependentUpon>
     </Compile>
-    <Compile Include="ButtonConfig.cs">
+    <Compile Include="ConfigGui\Binding\ButtonConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ButtonConfig.Designer.cs">
+    <Compile Include="ConfigGui\Binding\ButtonConfig.Designer.cs">
       <DependentUpon>ButtonConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControllerItem.cs" />
-    <Compile Include="GamepadPicker.cs">
+    <Compile Include="ConfigGui\ControllerItem.cs" />
+    <Compile Include="ConfigGui\GamepadPicker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GamepadPicker.Designer.cs">
+    <Compile Include="ConfigGui\GamepadPicker.Designer.cs">
       <DependentUpon>GamepadPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="HatConfig.cs">
+    <Compile Include="ConfigGui\Binding\HatConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HatConfig.Designer.cs">
+    <Compile Include="ConfigGui\Binding\HatConfig.Designer.cs">
       <DependentUpon>HatConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="IControllerComponentConfig.cs" />
-    <Compile Include="KeyList.cs" />
+    <Compile Include="ConfigGui\Binding\IControllerComponentConfig.cs" />
+    <Compile Include="ConfigGui\Binding\KeyList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,21 +94,39 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AxisConfig.resx">
+    <EmbeddedResource Include="ConfigGui\Binding\AxisConfig.resx">
       <DependentUpon>AxisConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ButtonBinder.resx">
+    <EmbeddedResource Include="ConfigGui\Binding\ButtonBinder.resx">
       <DependentUpon>ButtonBinder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ButtonConfig.resx">
+    <EmbeddedResource Include="ConfigGui\Binding\ButtonConfig.resx">
       <DependentUpon>ButtonConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GamepadPicker.resx">
+    <EmbeddedResource Include="ConfigGui\GamepadPicker.resx">
       <DependentUpon>GamepadPicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HatConfig.resx">
+    <EmbeddedResource Include="ConfigGui\Binding\HatConfig.resx">
       <DependentUpon>HatConfig.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\apollogeese-utilities\Collections\Collections.csproj">
+      <Project>{81dfa659-4906-4653-ac13-e0886d28b9a0}</Project>
+      <Name>Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\apollogeese-utilities\Logging\IO.csproj">
+      <Project>{3be321c5-f1e7-4f2c-a0e0-4affd4e7af5f}</Project>
+      <Name>IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\apollogeese-utilities\Parsing\Parsing.csproj">
+      <Project>{274a8afd-1de7-47d8-98cd-925982d59de0}</Project>
+      <Name>Parsing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\apollogeese-utilities\SettingsComposer\Composing.csproj">
+      <Project>{c34c6e2e-d624-498c-9ddb-1c4297a03dff}</Project>
+      <Name>Composing</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
