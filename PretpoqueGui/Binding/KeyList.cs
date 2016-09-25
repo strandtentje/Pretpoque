@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
 
-namespace PretpoqueD
+namespace PretpoqueGui
 {
     static class KeyList
     {

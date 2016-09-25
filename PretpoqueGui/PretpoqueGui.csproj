@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D51151DF-6236-47CB-84F2-51A59E5F6C49}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0A5B30E5-C892-45B2-B5D6-054DB6F6A2F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PretpoqueD</RootNamespace>
-    <AssemblyName>PretpoqueD</AssemblyName>
+    <RootNamespace>PretpoqueGui</RootNamespace>
+    <AssemblyName>PretpoqueGui</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,81 +37,92 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Win32Interop.User32">
       <HintPath>..\packages\Win32Interop.User32.1.0.1\lib\Win32Interop.User32.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsInput">
-      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigGui\Binding\AxisConfig.cs">
+    <Compile Include="Binding\AxisConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConfigGui\Binding\AxisConfig.Designer.cs">
+    <Compile Include="Binding\AxisConfig.Designer.cs">
       <DependentUpon>AxisConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonBinder.cs">
+    <Compile Include="Binding\ButtonBinder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonBinder.Designer.cs">
+    <Compile Include="Binding\ButtonBinder.Designer.cs">
       <DependentUpon>ButtonBinder.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonConfig.cs">
+    <Compile Include="Binding\ButtonConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConfigGui\Binding\ButtonConfig.Designer.cs">
+    <Compile Include="Binding\ButtonConfig.Designer.cs">
       <DependentUpon>ButtonConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigGui\ControllerItem.cs" />
-    <Compile Include="ConfigGui\GamepadPicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfigGui\GamepadPicker.Designer.cs">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConfigGui\Binding\HatConfig.cs">
+    <Compile Include="Binding\HatConfig.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ConfigGui\Binding\HatConfig.Designer.cs">
+    <Compile Include="Binding\HatConfig.Designer.cs">
       <DependentUpon>HatConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfigGui\Binding\IControllerComponentConfig.cs" />
-    <Compile Include="ConfigGui\Binding\KeyList.cs" />
+    <Compile Include="Binding\IControllerComponentConfig.cs" />
+    <Compile Include="Binding\KeyList.cs" />
+    <Compile Include="ControllerItem.cs" />
+    <Compile Include="GamepadPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GamepadPicker.Designer.cs">
+      <DependentUpon>GamepadPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Binding\AxisConfig.resx">
+      <DependentUpon>AxisConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Binding\ButtonBinder.resx">
+      <DependentUpon>ButtonBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Binding\ButtonConfig.resx">
+      <DependentUpon>ButtonConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Binding\HatConfig.resx">
+      <DependentUpon>HatConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GamepadPicker.resx">
+      <DependentUpon>GamepadPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="OpenTK.dll.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ConfigGui\Binding\AxisConfig.resx">
-      <DependentUpon>AxisConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\ButtonBinder.resx">
-      <DependentUpon>ButtonBinder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\ButtonConfig.resx">
-      <DependentUpon>ButtonConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\GamepadPicker.resx">
-      <DependentUpon>GamepadPicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConfigGui\Binding\HatConfig.resx">
-      <DependentUpon>HatConfig.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\apollogeese-utilities\Collections\Collections.csproj">

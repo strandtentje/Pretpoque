@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-namespace PretpoqueD
+namespace PretpoqueGui
 {
-    partial class ControllerBinder : Form
+    partial class ButtonBinder : Form
     {
         /// <summary>
         /// Required designer variable.

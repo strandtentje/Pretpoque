@@ -1,4 +1,4 @@
-﻿namespace PretpoqueD
+﻿namespace PretpoqueGui
 {
     partial class ButtonConfig
     {

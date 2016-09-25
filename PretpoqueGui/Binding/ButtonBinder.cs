@@ -11,16 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PretpoqueD
+namespace PretpoqueGui
 {
-    public partial class ControllerBinder : Form
+    public partial class ButtonBinder : Form
     {
         private int ControllerIndex;
         private JoystickCapabilities Capabilities;
         private List<IControllerComponentConfig> Configurators = new List<IControllerComponentConfig>();
         private Settings StoredConfig;
 
-        public ControllerBinder(int controllerIndex)
+        public ButtonBinder(int controllerIndex)
         {
             this.InitializeComponent();
 

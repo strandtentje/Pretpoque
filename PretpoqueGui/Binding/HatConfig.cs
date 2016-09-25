@@ -11,7 +11,7 @@ using OpenTK.Input;
 using BorrehSoft.Utensils.Collections.Settings;
 using NamedKey = System.Collections.Generic.KeyValuePair<string, System.Windows.Forms.Keys>;
 
-namespace PretpoqueD
+namespace PretpoqueGui
 {
     public partial class HatConfig : UserControl, IControllerComponentConfig
     {
