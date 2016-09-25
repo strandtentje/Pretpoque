@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>a82517b1-c9aa-4329-a7d6-fadc5151d2f3</ProjectGuid>
+    <ProjectGuid>{D51151DF-6236-47CB-84F2-51A59E5F6C49}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PretpoqueD</RootNamespace>
@@ -32,20 +32,83 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Win32Interop.User32">
+      <HintPath>..\packages\Win32Interop.User32.1.0.1\lib\Win32Interop.User32.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AxisConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AxisConfig.Designer.cs">
+      <DependentUpon>AxisConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonBinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ButtonBinder.Designer.cs">
+      <DependentUpon>ButtonBinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ButtonConfig.Designer.cs">
+      <DependentUpon>ButtonConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControllerItem.cs" />
+    <Compile Include="GamepadPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GamepadPicker.Designer.cs">
+      <DependentUpon>GamepadPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HatConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HatConfig.Designer.cs">
+      <DependentUpon>HatConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IControllerComponentConfig.cs" />
+    <Compile Include="KeyList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AxisConfig.resx">
+      <DependentUpon>AxisConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonBinder.resx">
+      <DependentUpon>ButtonBinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ButtonConfig.resx">
+      <DependentUpon>ButtonConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GamepadPicker.resx">
+      <DependentUpon>GamepadPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HatConfig.resx">
+      <DependentUpon>HatConfig.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

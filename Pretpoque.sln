@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Pretpoque", "Pretpoque\Pretpoque.vbproj", "{E40EDD2B-4176-49FA-9D4E-6A6571623208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretpoqueD", "PretpoqueD\PretpoqueD.csproj", "{D51151DF-6236-47CB-84F2-51A59E5F6C49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E40EDD2B-4176-49FA-9D4E-6A6571623208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E40EDD2B-4176-49FA-9D4E-6A6571623208}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E40EDD2B-4176-49FA-9D4E-6A6571623208}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E40EDD2B-4176-49FA-9D4E-6A6571623208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51151DF-6236-47CB-84F2-51A59E5F6C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51151DF-6236-47CB-84F2-51A59E5F6C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51151DF-6236-47CB-84F2-51A59E5F6C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51151DF-6236-47CB-84F2-51A59E5F6C49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
