@@ -1,11 +1,12 @@
-﻿using System;
+﻿using PretpoqueCommon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsInput.Native;
-using NamedKey = System.Collections.Generic.KeyValuePair<string, WindowsInput.Native.VirtualKeyCode>;
+using NamedKey = System.Collections.Generic.KeyValuePair<string, PretpoqueCommon.ExtendedVirtualKeyCode>;
 
 namespace PretpoqueGui
 {
@@ -19,10 +20,10 @@ namespace PretpoqueGui
             {
                 keys = new List<NamedKey>();
 
-                foreach (VirtualKeyCode item in Enum.GetValues(typeof(VirtualKeyCode)))
+                foreach (ExtendedVirtualKeyCode item in Enum.GetValues(typeof(ExtendedVirtualKeyCode)))
                 {
                     keys.Add(new NamedKey(
-                        Enum.GetName(typeof(VirtualKeyCode), item),
+                        Enum.GetName(typeof(ExtendedVirtualKeyCode), item),
                         item
                     ));
                 }

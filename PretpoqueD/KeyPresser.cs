@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PretpoqueCommon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +18,15 @@ namespace PretpoqueD
             this.Keyless = true;
         }
 
-        private KeyPresser(VirtualKeyCode key)
+        private KeyPresser(ExtendedVirtualKeyCode key)
         {
             this.Key = key;
         }
 
         internal static KeyPresser FromKeyname(string keyCode)
         {
-            VirtualKeyCode tmpKey;
-            if (Enum.TryParse<VirtualKeyCode>(keyCode, true, out tmpKey))
+            ExtendedVirtualKeyCode tmpKey;
+            if (Enum.TryParse<ExtendedVirtualKeyCode>(keyCode, true, out tmpKey))
             {
                 return new KeyPresser(tmpKey);
             }
@@ -35,7 +36,7 @@ namespace PretpoqueD
             }
         }
 
-        public VirtualKeyCode Key { get; private set; }
+        public ExtendedVirtualKeyCode Key { get; private set; }
 
         public bool Keyless { get; private set; }
 
@@ -48,14 +49,20 @@ namespace PretpoqueD
                 {
                     switch (Key)
                     {
-                        case VirtualKeyCode.LBUTTON:
+                        case ExtendedVirtualKeyCode.LBUTTON:
                             Simulator.Mouse.LeftButtonDown(); 
                             break;
-                        case VirtualKeyCode.RBUTTON:
+                        case ExtendedVirtualKeyCode.RBUTTON:
                             Simulator.Mouse.RightButtonDown();
                             break;
+                        case ExtendedVirtualKeyCode.WHEEL_DOWN:
+                            Simulator.Mouse.VerticalScroll(-1);
+                            break;
+                        case ExtendedVirtualKeyCode.WHEEL_UP:
+                            Simulator.Mouse.VerticalScroll(1);
+                            break;
                         default:
-                            Simulator.Keyboard.KeyDown(Key);
+                            Simulator.Keyboard.KeyDown((VirtualKeyCode)Key);
                             break;
                     }
 
@@ -64,14 +71,14 @@ namespace PretpoqueD
                 {
                     switch (Key)
                     {
-                        case VirtualKeyCode.LBUTTON:
+                        case ExtendedVirtualKeyCode.LBUTTON:
                             Simulator.Mouse.LeftButtonUp();
                             break;
-                        case VirtualKeyCode.RBUTTON:
+                        case ExtendedVirtualKeyCode.RBUTTON:
                             Simulator.Mouse.RightButtonUp();
                             break;
                         default:
-                            Simulator.Keyboard.KeyUp(Key);
+                            Simulator.Keyboard.KeyUp((VirtualKeyCode)Key);
                             break;
                     }
                 }

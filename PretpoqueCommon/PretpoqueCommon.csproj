@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsInput">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerItem.cs" />
@@ -51,6 +54,7 @@
     <Compile Include="ControllerPicker.Designer.cs">
       <DependentUpon>ControllerPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedVirtualKeyCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsKeys.cs" />
   </ItemGroup>
