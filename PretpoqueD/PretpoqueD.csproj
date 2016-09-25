@@ -88,6 +88,10 @@
       <Project>{c0817067-0bce-4dc9-8fa2-43a31bf6f810}</Project>
       <Name>PretpoqueCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PretpoqueGui\PretpoqueGui.csproj">
+      <Project>{0a5b30e5-c892-45b2-b5d6-054db6f6a2f6}</Project>
+      <Name>PretpoqueGui</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -36,10 +36,11 @@ namespace PretpoqueD
             logger.ReportHere(0, "Logfile Opened");
 
             ControllerPicker picker = new ControllerPicker();
-            
-            if (picker.ShowDialog() == DialogResult.OK) {
+
+            if (picker.ShowDialog() == DialogResult.OK)
+            {
                 selectedJoystick = picker.SelectedControllerIndex;
-                Settings settings = SettingsParser.FromFile("default.conf");                
+                Settings settings = SettingsParser.FromFile("default.conf");
                 JoystickCapabilities capabilities = Joystick.GetCapabilities(selectedJoystick);
 
                 ConfigureAxis(settings, capabilities);
@@ -49,6 +50,10 @@ namespace PretpoqueD
                 Timer pollThread = new Timer(10) { AutoReset = true, };
                 pollThread.Elapsed += pollThread_Elapsed;
                 pollThread.Start();
+            }
+            else
+            {
+                Environment.Exit(0);
             }
         }
 
