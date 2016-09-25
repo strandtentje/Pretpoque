@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composing", "apollogeese-ut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretpoqueGui", "PretpoqueGui\PretpoqueGui.csproj", "{0A5B30E5-C892-45B2-B5D6-054DB6F6A2F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PretpoqueCommon", "PretpoqueCommon\PretpoqueCommon.csproj", "{C0817067-0BCE-4DC9-8FA2-43A31BF6F810}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{0A5B30E5-C892-45B2-B5D6-054DB6F6A2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A5B30E5-C892-45B2-B5D6-054DB6F6A2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A5B30E5-C892-45B2-B5D6-054DB6F6A2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0817067-0BCE-4DC9-8FA2-43A31BF6F810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0817067-0BCE-4DC9-8FA2-43A31BF6F810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0817067-0BCE-4DC9-8FA2-43A31BF6F810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0817067-0BCE-4DC9-8FA2-43A31BF6F810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
